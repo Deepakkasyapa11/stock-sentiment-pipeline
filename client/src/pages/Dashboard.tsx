@@ -7,6 +7,7 @@ import {
   useSentimentFeed, 
   useNewsList 
 } from "@/hooks/use-pipeline";
+import { cn } from "@/lib/utils";
 import { MetricCard } from "@/components/MetricCard";
 import { StockChart } from "@/components/StockChart";
 import { SentimentGauge } from "@/components/SentimentGauge";
