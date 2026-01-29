@@ -38,6 +38,11 @@ export async function registerRoutes(
     res.json(news);
   });
 
+  // Health check endpoint
+  app.get("/health", (_req, res) => {
+    res.json({ status: "ok" });
+  });
+
   // Pipeline Push Endpoints (used by Python scripts)
   app.post(api.pipeline.pushStock.path, async (req, res) => {
     try {
