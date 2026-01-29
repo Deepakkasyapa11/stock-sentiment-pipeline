@@ -4,3 +4,8 @@ transformers
 torch
 requests
 yfinance
+sqlalchemy
+psycopg2-binary
+yfinance
+transformers
+torch
