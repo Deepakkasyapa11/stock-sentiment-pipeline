@@ -36,7 +36,7 @@ This project implements a tightly coupled test suite using `pytest` to ensure da
 ---
 
 #Local Setup
-1. Clone the repo: `git clone https://github.com/Deepakkasyapa11/repo-name.git`
+1. Clone the repo: `git clone https://github.com/Deepakkasyapa11/stock-sentiment-pipeline.git
 2. Install dependencies: `pip install -r requirements.txt`
 3. Set up environment variables in a `.env` file:
    ```env
