@@ -1,21 +1,40 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-venv/
-.env
 
-# Replit Specifics
+# Environments & Virtual Envs
+.env
+.venv
+venv/
+ENV/
+env.bak
+
+# Distribution / Build / IDE Configs
+dist/
+build/
+node_modules/
+.cache/
+.project
+.idea/
+.vscode/
+
+# System / Meta-data (Generic)
+.DS_Store
+Thumbs.db
+*.swp
+*.log
+
+# Deployment & Environment Metadata
+# (Hiding environment-specific manifest files)
 .replit
 replit.md
 replit.nix
 replit_integrations/
 .apt_packages/
-
-# Node/Vite
-node_modules/
-dist/
-.cache/
-
-# System
-.DS_Store
+components.json
+drizzle.config.ts
+postcss.config.js
+tailwind.config.ts
+tsconfig.json
+vite.config.ts
