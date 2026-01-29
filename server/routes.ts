@@ -84,11 +84,23 @@ export async function registerRoutes(
   // Simulation Trigger: Spawn Python Pipeline
   console.log("Starting Python Pipeline...");
   
-  const ingestion = spawn("python3", ["pipeline/ingestion.py"], { stdio: 'inherit' });
-  const processor = spawn("python3", ["pipeline/processor.py"], { stdio: 'inherit' });
+  const ingestion = spawn("python3", ["pipeline/ingestion.py"], { 
+    stdio: 'inherit',
+    detached: false 
+  });
+  const processor = spawn("python3", ["pipeline/processor.py"], { 
+    stdio: 'inherit',
+    detached: false
+  });
 
   ingestion.on('error', (err) => console.error('Failed to start ingestion pipeline:', err));
   processor.on('error', (err) => console.error('Failed to start processor pipeline:', err));
+
+  // Ensure children are killed when parent exits
+  process.on('exit', () => {
+    ingestion.kill();
+    processor.kill();
+  });
 
   // Seed initial data
   await seedDatabase();
