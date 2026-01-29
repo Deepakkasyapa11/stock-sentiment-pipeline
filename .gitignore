@@ -1,1 +1,13 @@
 .replit\nreplit.nix\nvenv/\n__pycache__/\n.env
+
+# Replit & Build Junk
+.replit
+replit.md
+components.json
+postcss.config.js
+tailwind.config.ts
+tsconfig.json
+vite.config.ts
+drizzle.config.ts
+node_modules/
+__pycache__/
