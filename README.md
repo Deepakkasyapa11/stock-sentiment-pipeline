@@ -8,7 +8,8 @@ Built to demonstrate streaming architecture, NLP integration, and full-stack dep
 
 ---
 
-#System Architecture
+#System Architecture<img width="1327" height="521" alt="Screenshot (116)" src="https://github.com/user-attachments/assets/9a7a3921-537a-4bb2-a94e-e6d04e63643a" />
+
 The system follows a modular "Producer-Consumer" pattern, designed for high throughput and horizontal scalability.
 
 1. **Data Ingestion:** Asynchronous fetchers for Market Data (yfinance/Alpha Vantage) and Financial News (NewsAPI).
