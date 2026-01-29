@@ -27,10 +27,6 @@ Thumbs.db
 
 # Deployment & Environment Metadata
 # (Hiding environment-specific manifest files)
-.replit
-replit.md
-replit.nix
-replit_integrations/
 .apt_packages/
 components.json
 drizzle.config.ts
