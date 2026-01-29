@@ -16,7 +16,7 @@ export async function registerRoutes(
   });
 
   app.get(api.stocks.history.path, async (req, res) => {
-    const symbol = req.params.symbol;
+    const symbol = req.params.symbol as string;
     const history = await storage.getStockHistory(symbol);
     res.json(history);
   });
