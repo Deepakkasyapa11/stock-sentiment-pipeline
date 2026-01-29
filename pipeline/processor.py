@@ -18,7 +18,6 @@ except Exception as e:
     print(f"Warning: Could not load FinBERT ({e}). Using simulation mode.")
     HAS_TRANSFORMERS = False
 
-def process_sentiment():
     db = get_db()
     try:
         print(f"[{datetime.now()}] Processor: Analyzing sentiment...")
@@ -91,6 +90,3 @@ def process_sentiment():
 
 if __name__ == "__main__":
     print("Starting Sentiment Processor Pipeline...")
-    while True:
-        process_sentiment()
-        time.sleep(5)

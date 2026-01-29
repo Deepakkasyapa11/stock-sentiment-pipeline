@@ -7,7 +7,6 @@ from datetime import datetime
 # Mock symbols for MVP simulation (avoiding rate limits)
 SYMBOLS = ["AAPL", "TSLA", "MSFT", "NVDA"]
 
-def fetch_stock_data():
     """
     Fetches real-time stock data. 
     For MVP, we mix real data (if available) with simulated fluctuation 
@@ -40,7 +39,6 @@ def fetch_stock_data():
     finally:
         db.close()
 
-def fetch_news():
     """
     Fetches news headlines. 
     Uses NewsAPI if key present, else simulates headlines for demo.
@@ -74,8 +72,4 @@ def fetch_news():
 
 if __name__ == "__main__":
     print("Starting Data Ingestion Pipeline...")
-    while True:
-        fetch_stock_data()
         if random.random() < 0.3: # Fetch news less frequently
-            fetch_news()
-        time.sleep(3) # Run every 3 seconds for "High Performance" feel
