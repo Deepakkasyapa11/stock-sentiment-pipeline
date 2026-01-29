@@ -1,13 +1,21 @@
-.replit\nreplit.nix\nvenv/\n__pycache__/\n.env
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
 
-# Replit & Build Junk
+# Replit Specifics
 .replit
 replit.md
-components.json
-postcss.config.js
-tailwind.config.ts
-tsconfig.json
-vite.config.ts
-drizzle.config.ts
+replit.nix
+replit_integrations/
+.apt_packages/
+
+# Node/Vite
 node_modules/
-__pycache__/
+dist/
+.cache/
+
+# System
+.DS_Store
