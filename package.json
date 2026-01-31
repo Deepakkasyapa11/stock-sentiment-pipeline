@@ -4,9 +4,9 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-  "dev": "tsx src/api/index.ts",
-  "build": "vite build",
-  "start": "node dist/index.cjs"
+    "dev": "tsx src/api/index.ts",
+    "build": "vite build",
+    "start": "node dist/index.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
