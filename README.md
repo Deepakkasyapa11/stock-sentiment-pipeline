@@ -4,7 +4,7 @@ A high-performance data engineering pipeline that correlates real-time financial
 
 ---
 
-# 🚀 Live Demo
+# Live Demo
 
 ---
 
@@ -21,28 +21,28 @@ The system follows a modular "Producer-Consumer" pattern, designed for high thro
 
 ---
 
-# 🛠 Tech Stack
+#  Tech Stack
 
-### Data & AI (Python)
+# Data & AI (Python)
 * **Engine:** Python 3.10+
 * **NLP:** FinBERT (HuggingFace Transformers)
 * **ORM:** SQLAlchemy
 * **Automation:** GitHub Actions (Hourly CRON jobs)
 
-### Backend & Storage
+# Backend & Storage
 * **Server:** Node.js, Express, TypeScript
 * **Database:** PostgreSQL (Neon.tech - Serverless)
 * **ORM:** Drizzle ORM
 * **Validation:** Zod
 
-### Frontend
+#Frontend
 * **Framework:** React 18 (Vite)
 * **Styling:** Tailwind CSS, ShadcnUI
 * **Charts:** Plotly.js / Recharts
 
 ---
 
-# 🧪 Testing Suite
+#  Testing Suite
 This project implements a tightly coupled test suite using `pytest` to ensure data integrity at every stage:
 * `test_ingestion`: Validates API schema and connectivity.
 * `test_sentiment`: Mocks financial headlines to verify NLP classification accuracy.
@@ -50,9 +50,9 @@ This project implements a tightly coupled test suite using `pytest` to ensure da
 
 ---
 
-# ⚙️ Local Setup
+# Local Setup
 
-### 1. Clone & Install
+# 1. Clone & Install
 ```powershell
 git clone [https://github.com/Deepakkasyapa11/stock-sentiment-pipeline.git](https://github.com/Deepakkasyapa11/stock-sentiment-pipeline.git)
 cd stock-sentiment-pipeline
