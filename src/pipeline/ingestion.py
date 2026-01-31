@@ -1,27 +1,34 @@
-import sys, os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import random
-from database import get_db, StockData, NewsFeed
-from datetime import datetime
+from datetime import datetime, timezone
+# Senior Note: We use absolute imports from the 'src' package
+from src.core.database import SessionLocal, StockData, NewsFeed
 
 SYMBOLS = ["AAPL", "TSLA", "MSFT", "NVDA"]
 
 def fetch_stock_data():
-    db = get_db()
+    # Senior Note: Use SessionLocal directly for standalone scripts
+    db = SessionLocal()
     try:
         for symbol in SYMBOLS:
             base_price = {"AAPL": 150, "TSLA": 200, "MSFT": 300, "NVDA": 400}[symbol]
             price = base_price + random.uniform(-2, 2)
-            db.add(StockData(symbol=symbol, price=price, timestamp=datetime.utcnow()))
+            # Senior Note: Avoid utcnow() - it's deprecated. Use timezone-aware objects.
+            db.add(StockData(
+                symbol=symbol, 
+                price=price, 
+                timestamp=datetime.now(timezone.utc)
+            ))
         db.commit()
         print("Stock data ingested.")
+    except Exception as e:
+        db.rollback()
+        print(f"Error ingesting stock data: {e}")
     finally:
         db.close()
 
 def fetch_news():
-    db = get_db()
+    db = SessionLocal()
     try:
-        # We use a broader pool to ensure variety
         headlines = [
             ("Fed suggests interest rate pause", "Wall Street Journal"),
             ("Tech giants face new antitrust probe", "CNBC"),
@@ -30,16 +37,18 @@ def fetch_news():
             ("Global supply chain disruptions easing", "Financial Times")
         ]
         h, s = random.choice(headlines)
-        # FORCE an entry every time this runs
         news_entry = NewsFeed(
             headline=h, 
             url="https://finance.yahoo.com", 
             source=s, 
-            published_at=datetime.utcnow()
+            published_at=datetime.now(timezone.utc)
         )
         db.add(news_entry)
         db.commit()
         print(f"News ingested: {h}")
+    except Exception as e:
+        db.rollback()
+        print(f"Error ingesting news: {e}")
     finally:
         db.close()
 

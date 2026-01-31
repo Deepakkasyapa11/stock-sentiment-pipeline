@@ -1,8 +1,8 @@
-name: Hourly Market Ingestion
+name: Monthly Market Ingestion
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs exactly every hour
-  workflow_dispatch:      # Allows you to click "Run" manually
+    - cron: '0 0 1 * *'  # Runs at midnight on the 1st of every month
+  workflow_dispatch:
 jobs:
   ingest:
     runs-on: ubuntu-latest
@@ -17,4 +17,4 @@ jobs:
       - name: Run Pipeline Task
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: python pipeline/task.py
+        run: python -m src.pipeline.task
