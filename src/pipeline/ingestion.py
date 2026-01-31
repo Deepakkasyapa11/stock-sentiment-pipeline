@@ -1,8 +1,6 @@
 import random
 from datetime import datetime, timezone
-# Senior Note: We use absolute imports from the 'src' package
 from src.core.database import SessionLocal, StockData, NewsFeed
-
 SYMBOLS = ["AAPL", "TSLA", "MSFT", "NVDA"]
 
 def fetch_stock_data():
