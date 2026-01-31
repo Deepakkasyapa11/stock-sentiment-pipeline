@@ -59,10 +59,11 @@ cd stock-sentiment-pipeline
 npm install
 pip install -r requirements.txt
 
+----
 
---
 
-# License
+
+## License
 Distributed under the MIT License. See LICENSE for more information.
 
 
