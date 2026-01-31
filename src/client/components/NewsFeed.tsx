@@ -60,7 +60,7 @@ export function NewsFeedCard({ news, sentiments, isLoading }: NewsFeedProps) {
                   <div className="flex items-center gap-2 mb-1.5">
                     <span className="text-xs font-mono text-primary/70">{item.source}</span>
                     <span className="text-[10px] text-muted-foreground">•</span>
-                    <span className="text-xs text-muted-foreground">{format(new Date(item.publishedAt), "MMM d, HH:mm")}</span>
+                    <span className="text-xs text-muted-foreground">{format(new Date(item.published_at), "MMM d, HH:mm")}</span>
                   </div>
                   <h4 className="font-medium text-sm text-foreground/90 leading-snug group-hover:text-primary transition-colors">
                     {item.headline}
@@ -80,9 +80,9 @@ export function NewsFeedCard({ news, sentiments, isLoading }: NewsFeedProps) {
                 )}
               </div>
               
-              {item.summary && (
+              {item.headline && (
                 <p className="text-xs text-muted-foreground line-clamp-2 mt-1">
-                  {item.summary}
+                  {item.headline}
                 </p>
               )}
               

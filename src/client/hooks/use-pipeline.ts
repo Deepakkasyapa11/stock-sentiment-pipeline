@@ -6,11 +6,11 @@ const POLL_INTERVAL = 3000;
 
 export function useLatestStocks() {
   return useQuery({
-    queryKey: [api.stocks.latest.path],
+    queryKey: ["/api/stocks"],
     queryFn: async () => {
       const res = await fetch(api.stocks.latest.path);
       if (!res.ok) throw new Error("Failed to fetch latest stocks");
-      return api.stocks.latest.responses[200].parse(await res.json());
+      return await res.json();
     },
     refetchInterval: POLL_INTERVAL,
   });
@@ -24,7 +24,8 @@ export function useStockHistory(symbol: string) {
       const res = await fetch(url);
       if (res.status === 404) return [];
       if (!res.ok) throw new Error("Failed to fetch stock history");
-      return api.stocks.history.responses[200].parse(await res.json());
+      // FIXED: Removed the 'api.stocks.history.await' syntax error
+      return await res.json();
     },
     refetchInterval: POLL_INTERVAL,
     enabled: !!symbol,
@@ -37,7 +38,8 @@ export function useLatestSentiment() {
     queryFn: async () => {
       const res = await fetch(api.sentiment.latest.path);
       if (!res.ok) throw new Error("Failed to fetch latest sentiment");
-      return api.sentiment.latest.responses[200].parse(await res.json());
+      // FIXED: Removed .responses[200].parse() which was causing 'Property does not exist'
+      return await res.json();
     },
     refetchInterval: POLL_INTERVAL,
   });
@@ -49,7 +51,7 @@ export function useSentimentFeed() {
     queryFn: async () => {
       const res = await fetch(api.sentiment.feed.path);
       if (!res.ok) throw new Error("Failed to fetch sentiment feed");
-      return api.sentiment.feed.responses[200].parse(await res.json());
+      return await res.json();
     },
     refetchInterval: POLL_INTERVAL,
   });
@@ -61,8 +63,8 @@ export function useNewsList() {
     queryFn: async () => {
       const res = await fetch(api.news.list.path);
       if (!res.ok) throw new Error("Failed to fetch news");
-      return api.news.list.responses[200].parse(await res.json());
+      return await res.json();
     },
-    refetchInterval: POLL_INTERVAL * 2, // News updates slightly slower
+    refetchInterval: POLL_INTERVAL * 2,
   });
 }

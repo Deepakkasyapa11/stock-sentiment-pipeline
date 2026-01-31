@@ -52,7 +52,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getNewsFeed(): Promise<NewsFeed[]> {
-    return await db.select().from(newsFeed).orderBy(desc(newsFeed.publishedAt)).limit(50);
+    return await db.select().from(newsFeed).orderBy(desc(newsFeed.published_at)).limit(50);
   }
 
   async addNewsFeed(data: InsertNewsFeed): Promise<NewsFeed> {
