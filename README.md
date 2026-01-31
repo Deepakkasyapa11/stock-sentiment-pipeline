@@ -1,31 +1,53 @@
 # 📈 MarketPulse: Real-Time Stock Sentiment Pipeline
 
-A high-performance data engineering pipeline that correlates real-time financial news sentiment with stock price movements. 
-Built to demonstrate streaming architecture, NLP integration, and full-stack deployment.
+A high-performance data engineering pipeline that correlates real-time financial news sentiment with stock price movements. An Enterprise-grade data engineering pipeline and full-stack application that correlates real-time financial news sentiment with market movements. This project demonstrates a production-ready Modular Monorepo architecture, combining Python data engineering with a TypeScript/React ecosystem.
 ---
 
 #  Live Demo
 
 ---
 
-#System Architecture<img width="1327" height="521" alt="Screenshot (116)" src="https://github.com/user-attachments/assets/9a7a3921-537a-4bb2-a94e-e6d04e63643a" />
+#System Architecture
+<img width="1327" height="521" alt="Screenshot (116)" src="https://github.com/user-attachments/assets/9a7a3921-537a-4bb2-a94e-e6d04e63643a" />
 
 The system follows a modular "Producer-Consumer" pattern, designed for high throughput and horizontal scalability.
+The system is split into three distinct layers, unified under a high-performance src/ directory structure:
 
-1. **Data Ingestion:** Asynchronous fetchers for Market Data (yfinance/Alpha Vantage) and Financial News (NewsAPI).
-2. **Processing Engine:** A lightweight simulation of a Spark Streaming pipeline that cleans, normalizes, and tokenizes incoming text.
-3. **Sentiment Analysis:** Utilizes the **FinBERT** (Financial Bidirectional Encoder Representations from Transformers) model via HuggingFace to categorize headlines into Bullish, Bearish, or Neutral.
-4. **Storage:** Relational persistence using **PostgreSQL** (Neon.tech) with SQLAlchemy ORM.
-5. **Visualization:** Interactive dashboard built with **Streamlit** and Plotly for real-time trend analysis.
+Data Ingestion (Python): Automated hourly fetchers for Market Data (yfinance) and Financial News.
+
+Sentiment Engine (NLP): Utilizes FinBERT (Financial Bidirectional Encoder Representations from Transformers) to classify headlines into Bullish, Bearish, or Neutral sentiments.
+
+Unified API (Node.js): A TypeScript-based Express server serving as the bridge between the PostgreSQL database and the client.
+
+Interactive Dashboard (React): A modern Vite-powered frontend utilizing ShadcnUI and Plotly for high-fidelity data visualization.
 
 ---
 
 #Tech Stack
-- **Backend:** Python (FastAPI), Pytest
-- **AI/ML:** HuggingFace Transformers, FinBERT
-- **Database:** PostgreSQL (Neon.tech)
-- **Frontend:** Streamlit, Plotly
-- **CI/CD:** GitHub Actions (for automated data ingestion)
+Data & AI (Python)
+Engine: Python 3.10+
+
+NLP: FinBERT (HuggingFace Transformers)
+
+ORM: SQLAlchemy
+
+Automation: GitHub Actions (Hourly CRON jobs)
+
+Backend & Storage
+Server: Node.js, Express, TypeScript
+
+Database: PostgreSQL (Neon.tech - Serverless)
+
+ORM: Drizzle ORM
+
+Validation: Zod
+
+Frontend
+Framework: React 18 (Vite)
+
+Styling: Tailwind CSS, ShadcnUI
+
+Charts: Plotly.js / Recharts
 
 #Testing Suite
 This project implements a tightly coupled test suite using `pytest` to ensure data integrity at every stage:
@@ -36,12 +58,24 @@ This project implements a tightly coupled test suite using `pytest` to ensure da
 ---
 
 #Local Setup
-1. Clone the repo: `git clone https://github.com/Deepakkasyapa11/stock-sentiment-pipeline.git`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Set up environment variables in a `.env` file:
-   ```env
-   DATABASE_URL=your_neon_db_url
-   NEWS_API_KEY=your_key
-Run the app: streamlit run app.py
+. Clone & Install
+PowerShell
+git clone https://github.com/Deepakkasyapa11/stock-sentiment-pipeline.git
+cd stock-sentiment-pipeline
+npm install
+pip install -r requirements.txt
+2. Environment Variables
+Create a .env file in the root:
 
-Developed by **Deepak kasyapa** - Designed for high-frequency sentiment tracking and market intelligence.
+Code snippet
+DATABASE_URL=postgresql://user:pass@your-neon-link.tech/dbname
+PORT=3000
+3. Run the System
+Start the Web App (Frontend + API): npm run dev
+
+Trigger Ingestion Manually: python -m src.pipeline.task
+
+ #License
+Distributed under the MIT License. See LICENSE for more information.
+
+Developed by Deepakkasyapa11 – Designed for high-frequency sentiment tracking and market intelligence.
