@@ -1,4 +1,4 @@
-ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff# 📈 MarketPulse: Real-Time Stock Sentiment Pipeline
+# 📈 MarketPulse: Real-Time Stock Sentiment Pipeline
 
 A high-performance data engineering pipeline that correlates real-time financial news sentiment with stock price movements. An Enterprise-grade data engineering pipeline and full-stack application that correlates real-time financial news sentiment with market movements. This project demonstrates a production-ready Modular Monorepo architecture, combining Python data engineering with a TypeScript/React ecosystem.
 
