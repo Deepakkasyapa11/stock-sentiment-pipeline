@@ -1,4 +1,4 @@
-# 📈 MarketPulse: Real-Time Stock Sentiment Pipeline
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff# 📈 MarketPulse: Real-Time Stock Sentiment Pipeline
 
 A high-performance data engineering pipeline that correlates real-time financial news sentiment with stock price movements. An Enterprise-grade data engineering pipeline and full-stack application that correlates real-time financial news sentiment with market movements. This project demonstrates a production-ready Modular Monorepo architecture, combining Python data engineering with a TypeScript/React ecosystem.
 
@@ -58,5 +58,16 @@ git clone [https://github.com/Deepakkasyapa11/stock-sentiment-pipeline.git](http
 cd stock-sentiment-pipeline
 npm install
 pip install -r requirements.txt
+
+
+--
+
+# License
+Distributed under the MIT License. See LICENSE for more information.
+
+
+
+
+
 
 Developed by Deepakkasyapa11 – Designed for high-frequency sentiment tracking and market intelligence.
